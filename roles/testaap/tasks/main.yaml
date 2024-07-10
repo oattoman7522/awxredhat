@@ -3,7 +3,7 @@
     var: inventory_hostname
 
 - name: Display paths of all .txt files in dir
-  ansible.builtin.command: "ls -al {{ '/data' if inventory_hostname = 'nexus' else '/tmp' }}"
+  ansible.builtin.command: "ls -al {{ '/data' if inventory_hostname == 'nexus' else '/tmp' }}"
   changed_when: true
 
 # - name: Copy each file over that matches the given pattern
