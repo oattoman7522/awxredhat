@@ -1,0 +1,12 @@
+- name: Display paths of all .txt files in dir
+  ansible.builtin.command: "ls -al /data/"
+  changed_when: true
+
+# - name: Copy each file over that matches the given pattern
+#   ansible.builtin.copy:
+#     src: "{{ item }}"
+#     dest: "/etc/fooapp/"
+#     owner: "root"
+#     mode: 0644
+#   with_fileglob:
+#     - "/playbooks/files/fooapp/*"
