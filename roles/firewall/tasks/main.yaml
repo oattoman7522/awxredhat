@@ -1,0 +1,12 @@
+- name: Check firewall
+  ansible.builtin.command: "nc -vz {{IP_VM}} {{ item }}"
+  changed_when: true
+  loop: "{{ Port_svc }}"
+  timeout: 10
+  register: result
+  ignore_errors: true
+
+- name: list firewall
+  ansible.builtin.debug:
+    msg: "{{ item }}"
+  loop: "{{result.results}}"
